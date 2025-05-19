@@ -340,7 +340,7 @@ export const ProRequiredAlert = (props: {
 				<Text size="xs">{props.alertText || PRO_REQUIRED_MESSAGE}</Text>
 			</Tooltip>
 		</Alert>
-	) : null;
+	);
 };
 
 const blackBgStyles = {
