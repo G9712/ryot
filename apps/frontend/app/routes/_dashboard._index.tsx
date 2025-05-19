@@ -296,7 +296,7 @@ const RecommendationsSection = () => {
 				</ActionIcon>
 			</Group>
 			{recommendations.data ? (
-				coreDetails.isServerKeyValidated ? (
+				true ? (
 					recommendations.data.userMetadataRecommendations.response.length >
 					0 ? (
 						<ApplicationGrid>
