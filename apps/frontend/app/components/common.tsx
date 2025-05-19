@@ -334,7 +334,7 @@ export const ProRequiredAlert = (props: {
 }) => {
 	const coreDetails = useCoreDetails();
 
-	return !coreDetails.isServerKeyValidated ? (
+	return (
 		<Alert>
 			<Tooltip label={props.tooltipLabel} disabled={!props.tooltipLabel}>
 				<Text size="xs">{props.alertText || PRO_REQUIRED_MESSAGE}</Text>
@@ -400,7 +400,7 @@ export const BaseMediaDisplayItem = (props: {
 							style={{ overflow: "hidden" }}
 							className={clsx(props.imageClassName, {
 								[classes.highlightImage]:
-									coreDetails.isServerKeyValidated && props.highlightImage,
+									props.highlightImage,
 							})}
 						>
 							<Image
@@ -562,9 +562,8 @@ export const CollectionsFilter = (props: {
 	>((props.applied || []).map((a) => ({ ...a, id: randomId() })));
 
 	useDidUpdate(() => {
-		const applicableFilters = coreDetails.isServerKeyValidated
-			? filters
-			: filters.slice(0, 1);
+		const applicableFilters = filters
+			;
 		const final = applicableFilters
 			.filter((f) => f.collectionId)
 			.map((a) => `${a.collectionId}:${a.presence}`)
@@ -647,9 +646,7 @@ export const CollectionsFilter = (props: {
 							</ActionIcon>
 						</Group>
 					))}
-					{filters.length > 1 && !coreDetails.isServerKeyValidated ? (
-						<ProRequiredAlert tooltipLabel="Only the first filter will be applied" />
-					) : null}
+					{null}
 				</Stack>
 			) : null}
 		</Stack>
