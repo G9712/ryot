@@ -182,7 +182,7 @@ jobs:
         continue-on-error: true
         with:
           registry: ${{ env.GHCR_REGISTRY }}
-          username: ${{ github.repository_owner }}
+          username: ${{ G9712 }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Log in to the docker hub container registry
         uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772
