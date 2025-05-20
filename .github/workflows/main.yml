@@ -15,6 +15,7 @@ permissions:
 env:
   GHCR_REGISTRY: ghcr.io
   DOCKER_USERNAME: xghxgh7
+  REPOSITORY_OWNER: G9712
 
 jobs:
   pre-workflow-checks:
@@ -182,7 +183,7 @@ jobs:
         continue-on-error: true
         with:
           registry: ${{ env.GHCR_REGISTRY }}
-          username: ${{ G9712 }}
+          username: ${{ env.REPOSITORY_OWNER }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Log in to the docker hub container registry
         uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772
